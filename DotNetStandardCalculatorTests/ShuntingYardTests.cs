@@ -1,7 +1,4 @@
 ﻿using DotNetStandardCalculator;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace DotNetStandardCalculatorTests
@@ -14,8 +11,7 @@ namespace DotNetStandardCalculatorTests
         [InlineData("6 + 5 + 4 + 3", new[] { "6", "5", "+", "4", "+", "3", "+"})]
         public void SimpleAdditionShunting(string infix, string[] expected)
         {
-            var result = ShuntingYard.GetRPNAsArrayFromString(infix);
-            Assert.Equal(expected, result);
+            AssertInfixConvertsToExpected(infix, expected);
         }
 
         [Theory]
@@ -24,8 +20,7 @@ namespace DotNetStandardCalculatorTests
         [InlineData("6 - 5 - 4 - 3", new[] { "6", "5", "-", "4", "-", "3", "-" })]
         public void SimpleSubtractionShunting(string infix, string[] expected)
         {
-            var result = ShuntingYard.GetRPNAsArrayFromString(infix);
-            Assert.Equal(expected, result);
+            AssertInfixConvertsToExpected(infix, expected);
         }
 
         [Theory]
@@ -35,8 +30,7 @@ namespace DotNetStandardCalculatorTests
         [InlineData("64 * 3 * 12", new[] { "64", "3", "*", "12", "*" })]
         public void SimpleMultiplicationShunting(string infix, string[] expected)
         {
-            var result = ShuntingYard.GetRPNAsArrayFromString(infix);
-            Assert.Equal(expected, result);
+            AssertInfixConvertsToExpected(infix, expected);
         }
 
         [Theory]
@@ -46,8 +40,7 @@ namespace DotNetStandardCalculatorTests
         [InlineData("51 / 11 / 2", new[] { "51", "11", "/", "2", "/" })]
         public void SimpleDivideShunting(string infix, string[] expected)
         {
-            var result = ShuntingYard.GetRPNAsArrayFromString(infix);
-            Assert.Equal(expected, result);
+            AssertInfixConvertsToExpected(infix, expected);
         }
 
         [Theory]
@@ -56,7 +49,21 @@ namespace DotNetStandardCalculatorTests
         [InlineData("100 - 5 * 3", new[] { "100", "5", "3", "*", "-" })]
         public void SimpleMultipleOperationShunting(string infix, string[] expected)
         {
-            var result = ShuntingYard.GetRPNAsArrayFromString(infix);
+            AssertInfixConvertsToExpected(infix, expected);
+        }
+
+        [Theory]
+        [InlineData("5 * 6 + 1 * (3 + 2)", new[] { "5", "6", "*", "1", "3", "2", "+", "*", "+" })]
+        [InlineData("9 + (3 * 55) / 6", new[] { "9", "3", "55", "*", "6", "/", "+" })]
+        public void ParenthesesShunting(string infix, string[] expected)
+        {
+            AssertInfixConvertsToExpected(infix, expected);
+        }
+
+        private void AssertInfixConvertsToExpected(string infix, string[] expected)
+        {
+            var split = Utilities.Split(infix);
+            var result = ShuntingYard.GetRPNAsArrayFromString(split);
             Assert.Equal(expected, result);
         }
     }
