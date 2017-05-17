@@ -16,7 +16,7 @@ namespace DotNetStandardCalculator
 
             var pattern = $"({operatorsRegex})";
             var split = Regex.Split(stringToSplit, pattern);
-            var splitAndTrimmed = split.Select(s => s.Trim()).ToArray();
+            var splitAndTrimmed = split.Select(s => s.Trim()).Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
 
             var splitValidated = Array.Empty<string>();
             return TryValidate(splitAndTrimmed, out splitValidated) ? splitValidated : null;
