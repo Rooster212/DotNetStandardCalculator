@@ -1,6 +1,7 @@
 language: csharp
 solution: DotNetStandardCalculator.sln
 dotnet: 1.0.1
+dist: trusty
 sudo: required
 script:
   - cd ./DotNetStandardCalculatorTests
