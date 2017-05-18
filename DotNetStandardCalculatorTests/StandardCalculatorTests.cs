@@ -33,5 +33,14 @@ namespace DotNetStandardCalculatorTests
         {
             TestCommon.AssertCalculateEqualsValue(infixSum, expected);
         }
+
+        [Theory]
+        [InlineData("4^3 * (60 - 3)", 3648)]
+        [InlineData("4^2 * (6^2 - 3)", 528)]
+        [InlineData("2^2 + 3", 7)]
+        public void PowerOfOperatorWorks(string infixSum, double expected)
+        {
+            TestCommon.AssertCalculateEqualsValue(infixSum, expected);
+        }
     }
 }

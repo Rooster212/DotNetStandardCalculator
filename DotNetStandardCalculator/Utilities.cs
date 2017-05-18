@@ -8,11 +8,11 @@ namespace DotNetStandardCalculator
     {
         private static Regex isNumberRegex = new Regex("^([0-9]+)?([.][0-9]+)?$");
 
-        private static string[] operatorsInOrder = new[] { "^", "*", "/", "+", "-", "(", ")" };
+        private static string[] operators = new[] { "^", "*", "/", "+", "-", "(", ")" };
 
         public static string[] Split(string stringToSplit)
         {
-            var operatorsRegex = string.Join("|", operatorsInOrder.Select(d => Regex.Escape(d)).ToArray());
+            var operatorsRegex = string.Join("|", operators.Select(d => Regex.Escape(d)).ToArray());
 
             var pattern = $"({operatorsRegex})";
             var split = Regex.Split(stringToSplit, pattern);
