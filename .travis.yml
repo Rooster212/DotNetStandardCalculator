@@ -1,2 +1,9 @@
 language: csharp
 solution: DotNetStandardCalculator.sln
+dotnet: 1.1
+sudo: required
+script:
+  cd ./DotNetStandardCalculatorTests
+  dotnet restore
+  dotnet build
+  dotnet xunit
