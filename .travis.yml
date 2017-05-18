@@ -1,9 +1,9 @@
 language: csharp
 solution: DotNetStandardCalculator.sln
-dotnet: 1.1
+dotnet: 1.0.1
 sudo: required
 script:
-  cd ./DotNetStandardCalculatorTests
-  dotnet restore
-  dotnet build
-  dotnet xunit
+  - cd ./DotNetStandardCalculatorTests
+  - dotnet restore
+  - dotnet build
+  - dotnet xunit
