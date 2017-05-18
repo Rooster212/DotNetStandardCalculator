@@ -60,6 +60,14 @@ namespace DotNetStandardCalculatorTests
             AssertInfixConvertsToExpected(infix, expected);
         }
 
+        [Theory]
+        [InlineData("2 ^ 3", new[] { "2", "3", "^"})]
+        [InlineData("6^2 + 5 * (5+4)", new[] { "6", "2", "^", "5", "5", "4", "+", "*", "+" })]
+        public void PowerOfOperatorShunting(string infix, string[] expected)
+        {
+            AssertInfixConvertsToExpected(infix, expected);
+        }
+
         private void AssertInfixConvertsToExpected(string infix, string[] expected)
         {
             var split = Utilities.Split(infix);

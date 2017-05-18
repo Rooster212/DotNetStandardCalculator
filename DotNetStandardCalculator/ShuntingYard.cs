@@ -9,7 +9,7 @@ namespace DotNetStandardCalculator
         
         private static Regex isOpenParentheseseRegex = new Regex("\\(");
         private static Regex isCloseParentheseseRegex = new Regex("\\)");
-        private static Regex isOperatorRegex = new Regex("[*/%+\\-]");
+        private static Regex isOperatorRegex = new Regex("[\\^*/%+\\-]");
 
         public static string[] GetRPNAsArrayFromString(string infixNotation)
         {
@@ -71,10 +71,12 @@ namespace DotNetStandardCalculator
             return valuesStack.Reverse().ToArray();
         }
 
-        private static int OperatorPrecedence(char op)
+        private static int OperatorPrecedence(char @operator)
         {
-            switch (op)
+            switch (@operator)
             {
+                case '^':
+                    return 6;
                 case '*':
                 case '/':
                 case '%':
