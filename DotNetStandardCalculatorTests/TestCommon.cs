@@ -1,5 +1,5 @@
 ﻿using DotNetStandardCalculator;
-using Xunit;
+using NUnit.Framework;
 
 namespace DotNetStandardCalculatorTests
 {
@@ -8,7 +8,7 @@ namespace DotNetStandardCalculatorTests
         internal static double AssertCalculateEqualsValue(string infixSum, double expected)
         {
             var result = StandardCalculator.CalculateFromString(infixSum);
-            Assert.Equal(expected, result);
+            Assert.That(expected, Is.EqualTo(result));
             return result;
         }
     }
