@@ -10,9 +10,9 @@ matrix:
         - dotnet restore
         - dotnet build
         - dotnet test
-    - mono: latest
-      script:
-        - nuget restore
-        - nuget install NUnit.Runners -OutputDirectory testrunner -Version 3.7.0
-        - msbuild DotNetStandardCalculator.sln /p:ExcludeRestorePackageImports=false #Workaround -https://github.com/NuGet/Home/issues/4790
-        - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./DotNetStandardCalculatorTests/bin/Debug/DotNetStandardCalculatorTests.dll
+    # - mono: latest
+    #   script:
+    #     - nuget restore
+    #     - nuget install NUnit.Runners -OutputDirectory testrunner -Version 3.7.0
+    #     - msbuild DotNetStandardCalculator.sln /p:ExcludeRestorePackageImports=false #Workaround -https://github.com/NuGet/Home/issues/4790
+    #     - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./DotNetStandardCalculatorTests/bin/Debug/DotNetStandardCalculatorTests.dll
