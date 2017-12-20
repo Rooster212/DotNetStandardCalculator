@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Rooster212/DotNetStandardCalculator.svg?branch=master)](https://travis-ci.org/Rooster212/DotNetStandardCalculator)
 
+[![Coverage Status](https://coveralls.io/repos/github/Rooster212/DotNetStandardCalculator/badge.svg?branch=master)](https://coveralls.io/github/Rooster212/DotNetStandardCalculator?branch=master)
+
 A little library to parse mathmatical calculations as a string implemented in .NET Standard.
 
 ## Implementation
