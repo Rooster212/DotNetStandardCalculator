@@ -5,10 +5,14 @@ matrix:
   include:
     - dotnet: 1.1.5
       mono: none
-    #- mono: latest
-
-script:
-  - cd ./DotNetStandardCalculatorTests
-  - dotnet restore
-  - dotnet build
-  - dotnet test
+      script:
+        - cd ./DotNetStandardCalculatorTests
+        - dotnet restore
+        - dotnet build
+        - dotnet test
+    - mono: latest
+      script:
+        - nuget restore
+        - nuget install NUnit.Runners -OutputDirectory testrunner -Version 3.7.0
+        - xbuild DotNetStandardCalculator.sln
+        - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./DotNetStandardCalculatorTests/bin/Debug/DotNetStandardCalculatorTests.dll
