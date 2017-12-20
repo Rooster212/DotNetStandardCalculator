@@ -8,20 +8,16 @@ install:
   - dotnet restore
 
 stages:
-  - build
   - test
   - name: package
     #if: branch = master
 
 jobs:
   include:
-    - stage: build
-      script:
-        - dotnet build
     - stage: test
       script:
         - dotnet test ./DotNetStandardCalculatorTests/DotNetStandardCalculatorTests.csproj
     - stage: deploy
       script:
-        - dotnet pack -c Release
+        - dotnet pack -c Release ./DotNetStandardCalculator/DotNetStandardCalculator.csproj
         - echo "To be implemented"
