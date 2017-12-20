@@ -10,16 +10,18 @@ install:
 stages:
   - test
   - name: package
-    if: branch = master
+    #if: branch = master
 
 jobs:
   include:
+    - stage: build
+      script:
+        - dotnet build
     - stage: test
       script:
-        - dotnet build
-        - dotnet test
+        - cd DotNetStandardCalculator/
+        - dotnet test ./DotNetStandardCalculatorTests/DotNetStandardCalculatorTests.csproj
     - stage: deploy
       script:
-        - dotnet build
         - dotnet pack -c Release
         - echo "To be implemented"
