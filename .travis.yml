@@ -8,6 +8,7 @@ install:
   - dotnet restore
 
 stages:
+  - build
   - test
   - name: package
     #if: branch = master
@@ -19,7 +20,6 @@ jobs:
         - dotnet build
     - stage: test
       script:
-        - cd DotNetStandardCalculator/
         - dotnet test ./DotNetStandardCalculatorTests/DotNetStandardCalculatorTests.csproj
     - stage: deploy
       script:
