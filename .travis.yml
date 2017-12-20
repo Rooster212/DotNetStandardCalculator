@@ -1,18 +1,25 @@
 language: csharp
 solution: DotNetStandardCalculator.sln
 
-matrix:
+dotnet: 1.1.5
+mono: none
+
+install:
+  - dotnet restore
+
+stages:
+  - test
+  - name: package
+    if: branch = master
+
+jobs:
   include:
-    - dotnet: 1.1.5
-      mono: none
+    - stage: test
       script:
-        - cd ./DotNetStandardCalculatorTests
-        - dotnet restore
         - dotnet build
         - dotnet test
-    # - mono: latest
-    #   script:
-    #     - nuget restore
-    #     - nuget install NUnit.Runners -OutputDirectory testrunner -Version 3.7.0
-    #     - msbuild DotNetStandardCalculator.sln /p:ExcludeRestorePackageImports=false #Workaround -https://github.com/NuGet/Home/issues/4790
-    #     - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./DotNetStandardCalculatorTests/bin/Debug/DotNetStandardCalculatorTests.dll
+    - stage: deploy
+      script:
+        - dotnet build
+        - dotnet pack -c Release
+        - echo "To be implemented"

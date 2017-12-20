@@ -9,8 +9,9 @@
     <PackageProjectUrl>https://github.com/Rooster212/DotNetStandardCalculator</PackageProjectUrl>
     <Copyright>Copyright © Jamie Roos 2017</Copyright>
     <NeutralLanguage />
-    <RepositoryUrl></RepositoryUrl>
-    <RepositoryType></RepositoryType>
+    <RepositoryUrl>https://github.com/Rooster212/DotNetStandardCalculator</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
