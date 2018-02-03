@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Rooster212/DotNetStandardCalculator.svg?branch=master)](https://travis-ci.org/Rooster212/DotNetStandardCalculator)
 
-A little library to parse mathmatical calculations as a string implemented in .NET Standard.
+A little library to parse mathematical calculations as a string implemented in .NET Standard.
 
 ## Implementation
 
