@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/Rooster212/DotNetStandardCalculator.svg?branch=master)](https://travis-ci.org/Rooster212/DotNetStandardCalculator)
 
+[![NuGet](https://img.shields.io/nuget/v/DotNetStandardCalculator.svg)](https://www.nuget.org/packages/DotNetStandardCalculator/)
+[![NuGet](https://img.shields.io/nuget/dt/DotNetStandardCalculator.svg)](https://www.nuget.org/packages/DotNetStandardCalculator/)
+
 A little library to parse mathematical calculations as a string implemented in .NET Standard.
 
 ## Implementation
